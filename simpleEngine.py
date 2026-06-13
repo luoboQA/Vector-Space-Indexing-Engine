@@ -1,6 +1,24 @@
 import math
 
 class VectorCompare:
+    """
+    concordance = {"apple": 3, "banana": 2, "orange": 5}
+    total = 0
+    total += 3² = 9
+    total += 2² = 4  → total = 13
+    total += 5² = 25 → total = 38
+
+    concordance1 = {"apple": 3, "banana": 2, "orange": 5, "grape": 1}
+    concordance2 = {"apple": 1, "banana": 4, "peach": 2}
+    "apple"：在两者中都存在 → 累加 3 × 1 = 3
+
+    "banana"：在两者中都存在 → 累加 2 × 4 = 8 → topvalue = 11
+
+    "orange"：不在 concordance2 中 → 跳过
+
+    "grape"：不在 concordance2 中 → 跳过
+
+    """
     def magnitude(self, concordance):
         if type(concordance) != dict:
             raise ValueError('Supplied Argument should be of type dict')
@@ -9,6 +27,7 @@ class VectorCompare:
             total += count ** 2
         return math.sqrt(total)
 
+    # cos(θ) = (A·B) / (||A|| × ||B||)
     def relation(self, concordance1, concordance2):
         if type(concordance1) != dict:
             raise ValueError('Supplied Argument 1 should be of type dict')
@@ -23,7 +42,7 @@ class VectorCompare:
             return topvalue / mag_product
         else:
             return 0
-
+    
     def concordance(self, document):
         if type(document) != str:
             raise ValueError('Supplied Argument should be of type string')
