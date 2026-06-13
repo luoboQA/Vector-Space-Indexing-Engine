@@ -79,7 +79,7 @@ def save_index(index, index_file='index.txt'):
 
 def main():
     # 设置文档文件夹路径
-    docs_folder = 'documents'  # 你可以改成你的文件夹路径
+    docs_folder = input("\n请输入文档文件夹路径: ").strip()
     
     # 如果文件夹不存在，创建示例文档
     if not os.path.exists(docs_folder):
